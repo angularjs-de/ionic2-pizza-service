@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle ion-button icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pizza <ion-icon name="pizza"></ion-icon> App</ion-title>
+    <ion-buttons end>
+      <cart-indicator (wasClicked)="openCart()"></cart-indicator>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="search"
+    >
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="order">
+  <div [hidden]="!loading" text-center padding>
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingText="aktualisieren..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item-group [hidden]="loading">
+      <ion-list-header default>
+        <ion-icon name="beer"></ion-icon> Angebot
+      </ion-list-header>
+      <ion-item (click)="openPizza(pizza.id)" *ngFor="let pizza of pizzas | pizzaSearch:search">
+          <span item-left text-left>{{pizza.id}}</span>
+          <h2>{{pizza.name}}</h2><p>{{pizza.price | currency:'EUR'}}</p>
+          <button item-right (click)="addToCart($event, pizza)" ion-button icon-only default>
+            <ion-icon name="cart"></ion-icon>
+          </button>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

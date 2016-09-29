@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle ion-button icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Warenkorb</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="cart.length">
+    <ion-item-sliding *ngFor="let item of cart; let index=index">
+      <ion-item>
+        <h2>{{item.name}}</h2>
+        <p>{{item.price | currency:'EUR'}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button (click)="removeFromCart(index)" danger default ion-button icon-left>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <p *ngIf="!cart.length" padding text-center>
+    Dein Warenkorb ist nocht leer!
+  </p>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col width-50>
+        <b>Gesamt:</b>
+      </ion-col>
+      <ion-col width-50 text-right>
+        <b>{{calcTotalSum() | currency:'EUR'}}</b>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

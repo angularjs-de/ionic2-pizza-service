@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{pizza?.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="pizza">
+    <ion-item>
+      <ion-icon name="pizza" item-left large></ion-icon>
+      <h2>{{pizza.name}}</h2>
+      <p>Ist in unserem Angebot die Nummer {{pizza.id}}</p>
+    </ion-item>
+
+    <ion-item>
+      <p>{{pizza.description}}/p>
+    </ion-item>
+
+    <ion-item>
+      <span primary clear item-right>
+        <ion-icon balanced></ion-icon>
+        {{pizza.price ? (pizza.price | currency:'EUR') : 'kostenlos'}}
+      </span>
+    </ion-item>
+  </ion-card>
+</ion-content>
