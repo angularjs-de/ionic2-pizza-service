@@ -5,7 +5,7 @@ import {CartItem} from '../models/cart-item.model';
 
 @Injectable()
 export class CartService {
-  cart: CartItem[] = [];
+  private cart: CartItem[] = [];
   public statusChanged = new EventEmitter<{type: string; totalCount: number}>();
 
   getCart(): CartItem[] {
