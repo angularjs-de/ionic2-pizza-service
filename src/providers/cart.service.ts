@@ -1,7 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 
-import {Pizza} from '../models/pizza.model';
-import {CartItem} from '../models/cart-item.model';
+import {CartItem, Pizza} from '../models';
 
 @Injectable()
 export class CartService {

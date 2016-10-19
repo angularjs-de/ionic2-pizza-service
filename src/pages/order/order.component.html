@@ -32,13 +32,13 @@
       <ion-list-header default>
         <ion-icon name="beer"></ion-icon> Angebot
       </ion-list-header>
-      <ion-item (click)="openPizza(pizza.id)" *ngFor="let pizza of pizzas | pizzaSearch:search">
+      <a ion-item (click)="openPizza(pizza.id)" *ngFor="let pizza of pizzas | pizzaSearch:search">
           <span item-left text-left>{{pizza.id}}</span>
           <h2>{{pizza.name}}</h2><p>{{pizza.price | currency:'EUR'}}</p>
           <button item-right (click)="addToCart($event, pizza)" ion-button icon-only default>
             <ion-icon name="cart"></ion-icon>
           </button>
-      </ion-item>
+      </a>
     </ion-item-group>
   </ion-list>
 </ion-content>

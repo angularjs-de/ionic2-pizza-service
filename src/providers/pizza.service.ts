@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
 
-import {Pizza} from '../models/pizza.model';
+import {Pizza} from '../models';
 
 @Injectable()
 export class PizzaService {

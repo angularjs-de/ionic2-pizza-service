@@ -16,7 +16,7 @@ export class OrderComponent implements OnInit {
   pizzas: Pizza[] = [];
   loading: boolean;
   pizzaSource: Observable<Pizza[]>;
-  @Input() search: string;
+  @Input() search: string = "";
 
   constructor(
     private pizzaService: PizzaService,
